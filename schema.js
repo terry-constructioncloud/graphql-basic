@@ -10,6 +10,14 @@ const typeDefs = `
   type Query {
     allProducts: [Product]
   }
+  
+  input ProductInput {
+    name: String!
+    qty: Int
+  }
+  type Mutation {
+    createProduct(input: ProductInput): Product
+  }
 `;
 
 module.exports = makeExecutableSchema({
