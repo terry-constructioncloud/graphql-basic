@@ -1,3 +1,7 @@
+const mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/gql_db');
+
 const express = require('express');
 const schema = require('./schema');
 const app = express();

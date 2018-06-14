@@ -1,3 +1,5 @@
+const Product = require('./models/product');
+
 const products = [
   {_id: 1, name: 'foo', qty: 2},
   {_id: 21, name: 'bar', qty: 3}
@@ -5,14 +7,13 @@ const products = [
 ];
 const resolvers = {
   Query: {
-    allProducts() {
-      return products;
+    async allProducts() {
+      return await Product.find();
     }
   },
   Mutation: {
-    createProduct(_, {input}){
-      products.push(input);
-      return input;
+    async createProduct(_, {input}) {
+      return await Product.create(input);
     }
   }
 };
