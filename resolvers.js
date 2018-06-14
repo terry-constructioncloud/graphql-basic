@@ -1,14 +1,12 @@
 const Product = require('./models/product');
 
-const products = [
-  {_id: 1, name: 'foo', qty: 2},
-  {_id: 21, name: 'bar', qty: 3}
-
-];
 const resolvers = {
   Query: {
     async allProducts() {
       return await Product.find();
+    },
+    async getProduct(_, {_id}) {
+      return await Product.findById(_id);
     }
   },
   Mutation: {
