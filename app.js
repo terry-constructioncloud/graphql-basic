@@ -1,8 +1,8 @@
 const express = require('express');
+const schema = require('./schema');
 const app = express();
 const graphqlHTTP = require('express-graphql');
 const port = 3000;
-const schema = {};
 app.use('/graphql', graphqlHTTP({
   graphiql: true,
   schema,
